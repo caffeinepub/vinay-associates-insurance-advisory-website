@@ -1,0 +1,25 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-about-us-page-founder-image-to-use-the-user-provided-reference-photo-keeping-the-existing-image-path-assets-generated-founder-photo-dim-300x400-jpg-so-the-founder-s-message-section-displays-the-new-picture",
+      "featureTitle": "Update the About Us page founder image to use the user-provided reference photo, keeping the existing image path `/assets/generated/founder-photo.dim_300x400.jpg` so the Founder's Message section displays the new picture.",
+      "files": [],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "authorization@4.0.0",
+        "http-outcalls@3.0.0",
+        "user-approval@3.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

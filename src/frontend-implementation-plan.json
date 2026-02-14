@@ -1,0 +1,23 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update About Us founder portrait asset while keeping existing image path",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Replace the founder portrait image used by the About Us page while keeping the same public asset path so the Founder's Message section displays the new photo without layout changes.",
+      "acceptanceCriteria": [
+        "About Us page (Founder's Message section) displays the updated founder picture.",
+        "The image continues to load from `/assets/generated/founder-photo.dim_300x400.jpg` (no broken image).",
+        "No layout regressions occur in the Founder's Message card on mobile or desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/founder-photo.dim_300x400.jpg",
+          "operation": "create",
+          "description": "Add the user-provided founder reference photo as a static asset, cropped to a centered 3:4 portrait and exported as JPG at 300x400, using this exact filename so the existing About Us <img src=\"/assets/generated/founder-photo.dim_300x400.jpg\"> continues to work."
+        }
+      ]
+    }
+  ]
+}

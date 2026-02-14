@@ -1,0 +1,39 @@
+{
+  "kind": "build_request",
+  "title": "Replace About Us founder picture with provided reference photo",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the About Us page founder image to use the user-provided reference photo, keeping the existing image path `/assets/generated/founder-photo.dim_300x400.jpg` so the Founder's Message section displays the new picture.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-4"
+        ],
+        "quotes": [
+          "In the about us section \nPlease change the founder picture \nAdd the given reference photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "About Us page (Founder's Message section) displays the updated founder picture.",
+        "The image continues to load from `/assets/generated/founder-photo.dim_300x400.jpg` (no broken image).",
+        "No layout regressions occur in the Founder's Message card on mobile or desktop."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (Shadcn UI components).",
+    "Do not edit any frontend immutable paths listed in SYSTEM_CONTEXT."
+  ],
+  "nonGoals": [
+    "Changing founder name/title text or any other About Us content beyond replacing the founder picture.",
+    "Adding image upload functionality or storing images via the backend."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Founder portrait photo cropped to a centered 3:4 frame (founder-photo.dim_300x400.jpg)"
+    ],
+    "edits": []
+  }
+}
