@@ -1,39 +1,67 @@
 {
   "kind": "build_request",
-  "title": "Replace About Us founder picture with provided reference photo",
+  "title": "Fix About Us founder photo display and add short founder bio",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the About Us page founder image to use the user-provided reference photo, keeping the existing image path `/assets/generated/founder-photo.dim_300x400.jpg` so the Founder's Message section displays the new picture.",
+      "text": "Replace the About Us page founder image with the user-uploaded photo (c6a6dcf8-f14a-4450-8eef-9d5f3a00cb79.jpg) by processing it into a center-cropped 3:4 portrait and saving it as a static asset at `frontend/public/assets/generated/founder-photo.dim_300x400.jpg`, ensuring it loads correctly at runtime via `/assets/generated/founder-photo.dim_300x400.jpg` (no broken/blank image).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages-4"
+          "recent-messages"
         ],
         "quotes": [
-          "In the about us section \nPlease change the founder picture \nAdd the given reference photo"
+          "Use this photo file for the founder photo and a short bio also",
+          "In the about us section the founder photo ... it’s displaying the white blank with question mark"
         ]
       },
       "acceptanceCriteria": [
-        "About Us page (Founder's Message section) displays the updated founder picture.",
-        "The image continues to load from `/assets/generated/founder-photo.dim_300x400.jpg` (no broken image).",
-        "No layout regressions occur in the Founder's Message card on mobile or desktop."
+        "On the About Us page, the founder image renders normally (not a blank box / question mark) and displays the user-uploaded photo.",
+        "The image is available as a static file at `frontend/public/assets/generated/founder-photo.dim_300x400.jpg` and is requested by the browser at `/assets/generated/founder-photo.dim_300x400.jpg` without 404.",
+        "The image is cropped/resized to exactly 300x400 (3:4) and looks center-cropped (no extreme off-center cut)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add a short, generic founder bio (in English) in the About Us founder section beneath the founder title. Use the following text exactly: \"I’m passionate about helping individuals and families choose the right insurance with clarity, transparency, and long-term support. My goal is to make protection simple—so you can focus on what matters most.\"",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "Add any short bio I don’t have any text to update"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The About Us founder section displays the provided bio text below the founder role/title, with readable spacing and styling consistent with the page.",
+        "All user-facing bio text is in English."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (Shadcn UI components).",
-    "Do not edit any frontend immutable paths listed in SYSTEM_CONTEXT."
+    "Frontend paths listed as immutable must not be edited: `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, `frontend/src/components/ui/*`.",
+    "Keep the founder image referenced by the About Us page at `/assets/generated/founder-photo.dim_300x400.jpg` (do not switch to a backend-served image)."
   ],
   "nonGoals": [
-    "Changing founder name/title text or any other About Us content beyond replacing the founder picture.",
-    "Adding image upload functionality or storing images via the backend."
+    "Adding an admin UI for uploading/changing the founder photo or bio.",
+    "Changing other About Us content (story, mission, values, achievements) beyond the founder photo and bio."
   ],
   "imageRequirements": {
-    "required": [
-      "Founder portrait photo cropped to a centered 3:4 frame (founder-photo.dim_300x400.jpg)"
-    ],
-    "edits": []
+    "required": [],
+    "edits": [
+      "Replace the founder portrait with the uploaded photo; center-crop to a 3:4 frame at 300x400 (founder-photo.dim_300x400.jpg > founder-photo.dim_300x400.jpg)"
+    ]
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

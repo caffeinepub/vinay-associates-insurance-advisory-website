@@ -1,21 +1,41 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update About Us founder portrait asset while keeping existing image path",
+  "title": "Fix About Us founder photo rendering and add founder bio",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Replace the founder portrait image used by the About Us page while keeping the same public asset path so the Founder's Message section displays the new photo without layout changes.",
+      "summary": "Replace the About Us founder image with the provided uploaded photo, center-cropped to 300x400, and ensure it loads from the required static path at runtime.",
       "acceptanceCriteria": [
-        "About Us page (Founder's Message section) displays the updated founder picture.",
-        "The image continues to load from `/assets/generated/founder-photo.dim_300x400.jpg` (no broken image).",
-        "No layout regressions occur in the Founder's Message card on mobile or desktop."
+        "On the About Us page, the founder image renders normally (not a blank box / question mark) and displays the user-uploaded photo.",
+        "The image is available as a static file at `frontend/public/assets/generated/founder-photo.dim_300x400.jpg` and is requested by the browser at `/assets/generated/founder-photo.dim_300x400.jpg` without 404.",
+        "The image is cropped/resized to exactly 300x400 (3:4) and looks center-cropped (no extreme off-center cut)."
       ],
       "file_operations": [
         {
           "path": "frontend/public/assets/generated/founder-photo.dim_300x400.jpg",
-          "operation": "create",
-          "description": "Add the user-provided founder reference photo as a static asset, cropped to a centered 3:4 portrait and exported as JPG at 300x400, using this exact filename so the existing About Us <img src=\"/assets/generated/founder-photo.dim_300x400.jpg\"> continues to work."
+          "operation": "modify",
+          "description": "Replace the existing static asset with the user-uploaded photo `c6a6dcf8-f14a-4450-8eef-9d5f3a00cb79.jpg`, processed into an exact 300x400px (3:4) center-cropped portrait so it reliably serves at `/assets/generated/founder-photo.dim_300x400.jpg` (no broken/blank image)."
+        },
+        {
+          "path": "frontend/src/pages/AboutUsPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the founder image in the About Us founder section references the required static URL `/assets/generated/founder-photo.dim_300x400.jpg` and keeps appropriate `object-cover object-center` styling so the new 3:4 portrait displays correctly at runtime (no path issues/blank placeholder)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add the provided short founder bio text under the founder role/title on the About Us page with consistent styling.",
+      "acceptanceCriteria": [
+        "The About Us founder section displays the provided bio text below the founder role/title, with readable spacing and styling consistent with the page.",
+        "All user-facing bio text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AboutUsPage.tsx",
+          "operation": "modify",
+          "description": "Add the bio text exactly as provided beneath the founder role/title in the founder section, using existing typography/spacing conventions so it reads well and remains consistent with the page styling."
         }
       ]
     }

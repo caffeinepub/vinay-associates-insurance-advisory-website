@@ -122,40 +122,25 @@ export default function AboutUsPage() {
           </div>
         </div>
 
-        {/* Founder's Message */}
+        {/* Founder Section */}
         <Card className="mb-16">
           <CardContent className="p-8 md:p-12">
-            <div className="grid lg:grid-cols-3 gap-8 items-center">
-              <div className="lg:col-span-1">
-                <img
-                  src="/assets/generated/founder-photo.dim_300x400.jpg"
-                  alt="Founder"
-                  className="rounded-lg shadow-lg w-full max-w-xs mx-auto"
-                />
-                <div className="text-center mt-4">
-                  <h3 className="text-xl font-bold">Vinay Erigala</h3>
-                  <p className="text-muted-foreground">Founder & CEO</p>
+            <div className="text-center">
+              <h2 className="text-3xl font-bold mb-8">Our Founder</h2>
+              <div className="inline-block">
+                <div className="relative w-[300px] h-[400px] mx-auto mb-6">
+                  <img
+                    src="/assets/generated/founder-photo.dim_300x400.jpg"
+                    alt="Vinay Erigala - Founder"
+                    className="rounded-lg shadow-lg w-full h-full object-cover object-center"
+                  />
                 </div>
-              </div>
-              <div className="lg:col-span-2 space-y-4">
-                <h2 className="text-3xl font-bold">A Personal Message</h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    "When I started Vinay Associates, I had witnessed firsthand how insurance could either be a lifesaver or a source of frustration. I saw families struggle with claim rejections, people buying wrong policies, and individuals paying for coverage they didn't need."
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-bold">Vinay Erigala</h3>
+                  <p className="text-lg text-muted-foreground">Founder & CEO</p>
+                  <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    With over a decade of experience in the insurance industry, Vinay founded Vinay Associates with a vision to simplify insurance for everyone. His commitment to transparency and client satisfaction has helped thousands of families secure their future with confidence.
                   </p>
-                  <p>
-                    "I founded this company with a promise – to always put the client first. To explain policies in simple language, to recommend only what's truly needed, and to stand by our clients when they need us most, especially during claims."
-                  </p>
-                  <p>
-                    "Over the years, we've helped thousands of families secure their future, supported businesses in protecting their assets, and assisted countless individuals in navigating the complex world of insurance. Every satisfied client reinforces our commitment to honest advice and long-term relationships."
-                  </p>
-                  <p>
-                    "Thank you for considering Vinay Associates. We look forward to being your trusted insurance partner."
-                  </p>
-                </div>
-                <div className="pt-4">
-                  <p className="font-semibold">Vinay Erigala</p>
-                  <p className="text-sm text-muted-foreground">Founder & CEO, Vinay Associates</p>
                 </div>
               </div>
             </div>

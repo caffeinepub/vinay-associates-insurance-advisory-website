@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-about-us-page-founder-image-to-use-the-user-provided-reference-photo-keeping-the-existing-image-path-assets-generated-founder-photo-dim-300x400-jpg-so-the-founder-s-message-section-displays-the-new-picture",
-      "featureTitle": "Update the About Us page founder image to use the user-provided reference photo, keeping the existing image path `/assets/generated/founder-photo.dim_300x400.jpg` so the Founder's Message section displays the new picture.",
-      "files": [],
+      "featureId": "feature-replace-the-about-us-page-founder-image-with-the-user-uploaded-photo-c6a6dcf8-f14a-4450-8eef-9d5f3a00cb79-jpg-by-processing-it-into-a-center-cropped-3-4-portrait-and-saving-it-as-a-static-asset-at-frontend-public-assets-generated-founder-photo-dim-300x400-jpg-ensuring-it-loads-correctly-at-runtime-via-assets-generated-founder-photo-dim-300x400-jpg-no-broken-blank-image",
+      "featureTitle": "Replace the About Us page founder image with the user-uploaded photo (c6a6dcf8-f14a-4450-8eef-9d5f3a00cb79.jpg) by processing it into a center-cropped 3:4 portrait and saving it as a static asset at `frontend/public/assets/generated/founder-photo.dim_300x400.jpg`, ensuring it loads correctly at runtime via `/assets/generated/founder-photo.dim_300x400.jpg` (no broken/blank image).",
+      "files": [
+        "frontend/src/pages/AboutUsPage.tsx"
+      ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -18,6 +20,28 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-short-generic-founder-bio-in-english-in-the-about-us-founder-section-beneath-the-founder-title-use-the-following-text-exactly-i-m-passionate-about-helping-individuals-and-families-choose-the-right-insurance-with-clarity-transparency-and-long-term-support-my-goal-is-to-make-protection-simple-so-you-can-focus-on-what-matters-most",
+      "featureTitle": "Add a short, generic founder bio (in English) in the About Us founder section beneath the founder title. Use the following text exactly: \"I’m passionate about helping individuals and families choose the right insurance with clarity, transparency, and long-term support. My goal is to make protection simple—so you can focus on what matters most.\"",
+      "files": [
+        "frontend/src/pages/AboutUsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "authorization@4.0.0",
+        "http-outcalls@3.0.0",
+        "user-approval@3.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

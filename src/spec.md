@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the About Us page founder picture with the user-provided reference photo while keeping the existing asset path unchanged.
+**Goal:** Fix the About Us founder photo so it displays correctly using the provided uploaded image, and add a short founder bio below the founder title.
 
 **Planned changes:**
-- Crop and resize the provided reference photo to a centered 3:4 portrait and replace the image file at `/assets/generated/founder-photo.dim_300x400.jpg`.
-- Verify the About Us (Founder's Message) section renders the updated image without any layout regressions on mobile or desktop.
+- Process the uploaded founder photo into a center-cropped 3:4 portrait at exactly 300x400 and save it as `frontend/public/assets/generated/founder-photo.dim_300x400.jpg`, ensuring the About Us page loads it at runtime from `/assets/generated/founder-photo.dim_300x400.jpg` without a broken/blank image.
+- Add the provided English founder bio text beneath the founder role/title in the About Us founder section, with spacing/styling consistent with the page.
 
-**User-visible outcome:** The About Us page shows the new founder photo in the Founder's Message section, loading from the same existing image path.
+**User-visible outcome:** The About Us page shows the founder photo (not a blank/question-mark image) and displays a short founder bio under the founder title.
